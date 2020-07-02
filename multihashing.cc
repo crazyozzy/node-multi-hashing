@@ -230,8 +230,6 @@ DECLARE_NO_INPUT_LENGTH_CALLBACK(lyra2re2, lyra2re2_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(lyra2rev2, lyra2rev2_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(lyra2rev3, lyra2rev3_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(lyra2z, lyra2z_hash, 32);
-DECLARE_NO_INPUT_LENGTH_CALLBACK(m7, m7_hash, 32);
-DECLARE_NO_INPUT_LENGTH_CALLBACK(m7m, m7m_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(phi1612, phi1612_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(tribus, tribus_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower, yespower_hash, 32);
@@ -643,6 +641,26 @@ DECLARE_FUNC(yespower_sugar) {
     SET_BUFFER_RETURN(output, 32);
 }
 
+DECLARE_FUNC(cpupower){
+    DECLARE_SCOPE;
+
+    if (args.Length() < 1)
+        RETURN_EXCEPT("You must provide one argument.");
+
+    Local<Object> target = args[0]->ToObject();
+
+    if(!Buffer::HasInstance(target))
+        RETURN_EXCEPT("Argument should be a buffer object.");
+
+
+    char * input = Buffer::Data(target);
+    char output[32];
+
+    cpupower_hash(input, output);
+
+    SET_BUFFER_RETURN(output, 32);
+}
+
 DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "allium", allium);
     NODE_SET_METHOD(exports, "bcrypt", bcrypt);
@@ -667,8 +685,6 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "lyra2z", lyra2z);
     NODE_SET_METHOD(exports, "lyra2z16m330", lyra2z16m330);
     NODE_SET_METHOD(exports, "lyra2z330", lyra2z330);
-    NODE_SET_METHOD(exports, "m7", m7);
-    NODE_SET_METHOD(exports, "m7m", m7m);
     NODE_SET_METHOD(exports, "minotaur", minotaur);
     NODE_SET_METHOD(exports, "neoscrypt", neoscrypt);
     NODE_SET_METHOD(exports, "nist5", nist5);
@@ -700,6 +716,7 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "yespower_0_5_R32", yespower_0_5_R32);
     NODE_SET_METHOD(exports, "yespower_sugar", yespower_sugar);
     NODE_SET_METHOD(exports, "yespower_ltncg", yespower_ltncg);
+    NODE_SET_METHOD(exports, "cpupower", cpupower);
 }
 
 NODE_MODULE(multihashing, init)
