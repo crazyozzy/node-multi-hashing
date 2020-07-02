@@ -48,6 +48,7 @@ extern "C" {
 #include "x17.h"
 #include "xevan.h"
 #include "yespower/yespower.h"
+#include "cpupower/cpupower.h"
 }
 
 #include "boolberry.h"
