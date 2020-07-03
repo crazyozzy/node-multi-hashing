@@ -97,9 +97,7 @@
                 "crypto/wild_keccak.cpp",
                 "yespower/yespower.c",
                 "yespower/yespower-opt.c",
-                "cpupower/cpupower.c",
-                "cpupower/cpupower-opt.c"
-
+                "cpupower/cpupower.c"
             ],
             'conditions': [
                 ['OS=="linux"',
