@@ -27,6 +27,7 @@
                 "Lyra2Z.c",
                 "lyra2z16m330.c",
                 "lyra2z330.c",
+                "m7.c",
                 "magimath.c",
                 "minotaur.c",
                 "neoscrypt.c",
