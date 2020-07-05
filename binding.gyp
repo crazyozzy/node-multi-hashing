@@ -97,6 +97,7 @@
                 "crypto/wild_keccak.cpp",
                 "yespower/yespower.c",
                 "yespower/yespower-opt.c",
+                "yespower/yespower-blake2b.c",
                 "cpupower/cpupower.c"
             ],
             'conditions': [
