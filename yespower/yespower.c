@@ -130,3 +130,14 @@ void yespower_ltncg_hash(const char* input, char* output)
     };
     yespower_tls((const uint8_t*)input, 80, &params, (yespower_binary_t*)output);
 }
+
+void yespower_b2b_hash(const char* input, char* output);
+{
+    static const yespower_params_t yespower_microbitcoin = {
+        .N = 2048,
+        .r = 32,
+        .pers = (const uint8_t *)"Now I am become Death, the destroyer of worlds",
+        .perslen = 46
+    };
+    yespower_b2b_tls((const uint8_t*)input, 80, &params, (yespower_binary_t*)output);
+}
