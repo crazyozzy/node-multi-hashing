@@ -27,6 +27,7 @@
  */
 
 #include "yespower.h"
+#include "crypto/blake2b-yp.h"
 
  // for YesPoWer-0.9/1.0 (Cryply, Bellcoin)
 void yespower_hash(const char* input, char* output)
