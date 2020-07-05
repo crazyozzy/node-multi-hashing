@@ -240,6 +240,7 @@ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R16, yespower_0_5_R16_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R24, yespower_0_5_R24_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R32, yespower_0_5_R32_hash, 32);
 DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_ltncg, yespower_ltncg_hash, 32);
+DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_b2b, yespower_b2b_hash, 32);
 
 DECLARE_FUNC(scrypt) {
     DECLARE_SCOPE;
@@ -663,6 +664,31 @@ DECLARE_FUNC(cpupower){
     SET_BUFFER_RETURN(output, 32);
 }
 
+DECLARE_FUNC(yespower_b2b) {
+    DECLARE_SCOPE;
+
+    if (args.Length() < 1)
+        RETURN_EXCEPT("You must provide one argument.");
+
+#if NODE_MAJOR_VERSION >= 12
+    Local<Object> target = args[0]->ToObject(isolate);
+#else
+    Local<Object> target = args[0]->ToObject();
+#endif
+
+    if (!Buffer::HasInstance(target))
+        RETURN_EXCEPT("Argument should be a buffer object.");
+
+
+    char* input = Buffer::Data(target);
+    uint32_t input_len = Buffer::Length(target);
+    char output[32];
+
+    yespower_b2b_hash(input, output);
+
+    SET_BUFFER_RETURN(output, 32);
+}
+
 DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "allium", allium);
     NODE_SET_METHOD(exports, "bcrypt", bcrypt);
@@ -718,6 +744,7 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "yespower_0_5_R32", yespower_0_5_R32);
     NODE_SET_METHOD(exports, "yespower_sugar", yespower_sugar);
     NODE_SET_METHOD(exports, "yespower_ltncg", yespower_ltncg);
+    NODE_SET_METHOD(exports, "yespower-b2b", yespower_b2b);
     NODE_SET_METHOD(exports, "cpupower", cpupower);
 }
 
