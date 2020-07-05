@@ -98,6 +98,7 @@
                 "yespower/yespower.c",
                 "yespower/yespower-opt.c",
                 "yespower/yespower-blake2b.c",
+                "yespower/crypto/blake2b-yp.c",
                 "cpupower/cpupower.c"
             ],
             'conditions': [
