@@ -1115,7 +1115,7 @@ static void smix(uint8_t *B, size_t r, uint32_t N,
 int yespower_b2b(yespower_local_t *local,
     const uint8_t *src, size_t srclen,
     const yespower_params_t *params,
-    yespower_binary_t *dst, int thrid )
+    yespower_binary_t *dst)
 {
     uint32_t N = params->N;
     uint32_t r = params->r;
@@ -1199,7 +1199,7 @@ fail:
  * Return 0 on success; or -1 on error.
  */
 int yespower_b2b_tls(const uint8_t *src, size_t srclen,
-    const yespower_params_t *params, yespower_binary_t *dst, int thrid )
+    const yespower_params_t *params, yespower_binary_t *dst)
 {
     static __thread int initialized = 0;
     static __thread yespower_local_t local;
