@@ -684,7 +684,7 @@ DECLARE_FUNC(yespower_b2b) {
     uint32_t input_len = Buffer::Length(target);
     char output[32];
 
-    yespower_b2b_hash(input, output);
+    blake2b_yp_hash(input, output, 0);
 
     SET_BUFFER_RETURN(output, 32);
 }
