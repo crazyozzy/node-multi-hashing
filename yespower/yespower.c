@@ -134,7 +134,7 @@ void yespower_ltncg_hash(const char* input, char* output)
 
 void yespower_b2b_hash(const char* input, char* output)
 {
-    static const yespower_params_t yespower_microbitcoin = {
+    static const yespower_params_t params = {
         .N = 2048,
         .r = 32,
         .pers = (const uint8_t *)"Now I am become Death, the destroyer of worlds",
