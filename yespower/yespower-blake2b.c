@@ -1170,7 +1170,7 @@ int yespower_b2b(yespower_local_t *local,
         srclen = 0;
     }
 
-    if ( work_restart[thrid].restart ) return false;
+    //if ( work_restart[thrid].restart ) return false;
     
     pbkdf2_blake2b_yp(init_hash, sizeof(init_hash), src, srclen, 1, B, 128);
 
@@ -1209,7 +1209,7 @@ int yespower_b2b_tls(const uint8_t *src, size_t srclen,
         initialized = 1;
     }
 
-    return yespower_b2b(&local, src, srclen, params, dst, thrid);
+    return yespower_b2b(&local, src, srclen, params, dst);
 }
 /*
 int yespower_init_local(yespower_local_t *local)
