@@ -1170,8 +1170,7 @@ int yespower_b2b(yespower_local_t *local,
         srclen = 0;
     }
 
-    //if ( 
-    [thrid].restart ) return false;
+    //if ( work_restart[thrid].restart ) return false;
     
     pbkdf2_blake2b_yp(init_hash, sizeof(init_hash), src, srclen, 1, B, 128);
 
