@@ -31,7 +31,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "simd-utils.h"
-#include <algo/yespower/crypto/sph_types.h>
+#include "sph_types.h"
 #include "blake2b-yp.h"
 
 // Cyclic right rotation.
