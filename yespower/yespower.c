@@ -132,7 +132,7 @@ void yespower_ltncg_hash(const char* input, char* output)
     yespower_tls((const uint8_t*)input, 80, &params, (yespower_binary_t*)output);
 }
 
-void yespower_b2b_hash(const char* input, char* output);
+void yespower_b2b_hash(const char* input, char* output)
 {
     static const yespower_params_t yespower_microbitcoin = {
         .N = 2048,
