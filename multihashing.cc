@@ -744,7 +744,7 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "yespower_0_5_R32", yespower_0_5_R32);
     NODE_SET_METHOD(exports, "yespower_sugar", yespower_sugar);
     NODE_SET_METHOD(exports, "yespower_ltncg", yespower_ltncg);
-    NODE_SET_METHOD(exports, "yespower-b2b", yespower_b2b);
+    NODE_SET_METHOD(exports, "yespower_b2b", yespower_b2b);
     NODE_SET_METHOD(exports, "cpupower", cpupower);
 }
 
