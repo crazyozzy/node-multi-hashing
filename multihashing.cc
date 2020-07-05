@@ -50,6 +50,7 @@ extern "C" {
 #include "xevan.h"
 #include "yespower/yespower.h"
 #include "cpupower/cpupower.h"
+#include "yespower/crypto/blake2b-yp.h"
 }
 
 #include "boolberry.h"
